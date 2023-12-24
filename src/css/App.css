@@ -1,0 +1,71 @@
+/* App.css */
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Use viewport height instead of 100% */
+}
+
+.header {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.map-container {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  font-size: 3em;
+  animation: messageBlink 2s linear infinite; /* Add animation */
+}
+
+/* Define the animation */
+@keyframes messageBlink {
+  0% {
+    color: green;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: green;
+  }
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    font-size: 18px;
+  }
+}
+

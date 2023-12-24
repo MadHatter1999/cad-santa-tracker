@@ -1,0 +1,109 @@
+{
+    "Newfoundland Time Zone": {
+        "North Pole": {
+            "arrival_time_utc": "2023-12-25 00:00:00 UTC",
+            "coordinates": { "lat": 90, "lng": 0 }
+
+        },
+        "St. John's": {
+            "arrival_time_utc": "2023-12-25 02:30:00 UTC",
+            "coordinates": { "lat": 47.5615, "lng": -52.7126 }
+        }
+    },
+    "Atlantic Time Zone": {
+        "Halifax": {
+            "arrival_time_utc": "2023-12-25 03:00:00 UTC",
+            "coordinates": { "lat": 44.6488, "lng": -63.5752 }
+        },
+        "Eastern Passage, NS": {
+            "arrival_time_utc": "2023-12-25 03:05:00 UTC",
+            "coordinates": { "lat": 44.6108, "lng": -63.4992 },
+            "msg": "Merry Christmas Ezra and Bennetts!!!"
+        },
+        "Lower Sackville, NS": {
+            "arrival_time_utc": "2023-12-25 03:10:00 UTC",
+            "coordinates": { "lat": 44.7762, "lng": -63.6844 },
+            "msg": "Merry Christmas Nanny and Mom!!!"
+        },
+        "Bayswater, Nova Scotia": {
+            "arrival_time_utc": "2023-12-25 03:15:00 UTC",
+            "coordinates": { "lat": 44.4858, "lng": -64.0188 },
+            "msg": "Merry Christmas Landon and Maddie!!!!"
+        },
+        "Charlottetown": {
+            "arrival_time_utc": "2023-12-25 03:20:00 UTC",
+            "coordinates": { "lat": 46.2382, "lng": -63.1311 }
+        },
+        "Fredericton": {
+            "arrival_time_utc": "2023-12-25 03:25:00 UTC",
+            "coordinates": { "lat": 45.9636, "lng": -66.6431 }
+        },
+        "Saint John": {
+            "arrival_time_utc": "2023-12-25 03:30:00 UTC",
+            "coordinates": { "lat": 45.2733, "lng": -66.0633 }
+        },
+        "Moncton": {
+            "arrival_time_utc": "2023-12-25 03:35:00 UTC",
+            "coordinates": { "lat": 46.0878, "lng": -64.7782 }
+        },
+        "Yarmouth": {
+            "arrival_time_utc": "2023-12-25 03:40:00 UTC",
+            "coordinates": { "lat": 43.8375, "lng": -66.1174 }
+        },
+        "Truro": {
+            "arrival_time_utc": "2023-12-25 03:45:00 UTC",
+            "coordinates": { "lat": 45.3658, "lng": -63.2869 },
+            "msg": "Merry Christmas Gavin!!!!"
+        }
+    },
+    "Eastern Time Zone": {
+        "Quebec City": {
+            "arrival_time_utc": "2023-12-25 04:00:00 UTC",
+            "coordinates": { "lat": 46.8139, "lng": -71.2082 }
+        },
+        "Montreal": {
+            "arrival_time_utc": "2023-12-25 04:10:00 UTC",
+            "coordinates": { "lat": 45.5017, "lng": -73.5673 },
+            "msg": "Merry Christmas Strippers and GREAT WINE!!!!"
+        },
+        "Ottawa": {
+            "arrival_time_utc": "2023-12-25 04:20:00 UTC",
+            "coordinates": { "lat": 45.4215, "lng": -75.6972 }
+        },
+        "Toronto": {
+            "arrival_time_utc": "2023-12-25 04:30:00 UTC",
+            "coordinates": { "lat": 43.65107, "lng": -79.347015 }
+        },
+        "Hamilton": {
+            "arrival_time_utc": "2023-12-25 04:40:00 UTC",
+            "coordinates": { "lat": 43.2557, "lng": -79.8711 }
+        },
+        "London": {
+            "arrival_time_utc": "2023-12-25 04:50:00 UTC",
+            "coordinates": { "lat": 42.9849, "lng": -81.2453 }
+        },
+        "Ashton": {
+            "arrival_time_utc": "2023-12-25 05:00:00 UTC",
+            "coordinates": { "lat": 45.1910, "lng": -75.8355 },
+            "msg": "Merry Christmas Yvette and Connor!!!!"
+        }
+    },
+    "Central Time Zone": {
+        "Winnipeg": {
+            "arrival_time_utc": "2023-12-25 05:30:00 UTC",
+            "coordinates": { "lat": 49.8951, "lng": -97.1384 }
+        }
+    },
+    "Mountain Time Zone": {
+        "Calgary": {
+            "arrival_time_utc": "2023-12-25 06:00:00 UTC",
+            "coordinates": { "lat": 51.0447, "lng": -114.0719 }
+        }
+    },
+    "Pacific Time Zone": {
+        "Vancouver": {
+            "arrival_time_utc": "2023-12-25 06:30:00 UTC",
+            "coordinates": { "lat": 49.2827, "lng": -123.1207 }
+        }
+    }
+}

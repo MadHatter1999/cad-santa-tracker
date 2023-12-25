@@ -75,7 +75,7 @@ const SantaMap: React.FC<SantaMapProps> = ({ santaData }) => {
                         console.error('Invalid interpolated position:', interpolatedPosition);
                         // Optionally set a fallback position or handle the error
                     }
-                }
+                } 
             }
         };
 

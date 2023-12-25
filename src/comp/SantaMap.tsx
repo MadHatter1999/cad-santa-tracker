@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// Define the types as before
+// Define the types
 interface CityData {
   arrival_time_utc: string;
   coordinates: { lat: number; lng: number };
@@ -36,13 +36,11 @@ const interpolatePosition = (start: { lat: number, lng: number }, end: { lat: nu
     };
 };
 
-
 const SantaMap: React.FC<SantaMapProps> = ({ santaData }) => {
     const [currentPosition, setCurrentPosition] = useState<L.LatLngExpression>([northPoleCoords.lat, northPoleCoords.lng]);
     const [message, setMessage] = useState('');
     const [currentLocationIndex, setCurrentLocationIndex] = useState(0);
 
-    // Function to flatten the santaData
     const flattenData = (data: SantaData) => {
         let flatData: Array<{ city: string; coordinates: { lat: number; lng: number }; arrival_time_utc: string; msg?: string }> = [];
         for (const zone in data) {
@@ -53,19 +51,6 @@ const SantaMap: React.FC<SantaMapProps> = ({ santaData }) => {
         }
         return flatData;
     };
-
-    // Function to find the current or next location of Santa based on the current time
-    const findCurrentLocation = (locations: any[]) => {
-        const now = new Date();
-        for (let i = 0; i < locations.length; i++) {
-            let arrivalTime = new Date(locations[i].arrival_time_utc);
-            if (now < arrivalTime) {
-                return i === 0 ? locations[0] : locations[i - 1];
-            }
-        }
-        return locations[locations.length - 1];
-    };
-
 
     useEffect(() => {
         const locations = flattenData(santaData);
@@ -79,44 +64,40 @@ const SantaMap: React.FC<SantaMapProps> = ({ santaData }) => {
 
                 if (now >= nextLocationTime) {
                     setCurrentLocationIndex(currentLocationIndex + 1);
-                    if (nextLocation.msg) {
-                        setMessage(nextLocation.msg);
-                    } else {
-                        setMessage(`Santa is currently at ${nextLocation.city}`);
-                    }
+                    setMessage(nextLocation.msg || `Santa is currently at ${nextLocation.city}`);
                 } else {
                     const fraction = (now - currentLocationTime) / (nextLocationTime - currentLocationTime);
                     const interpolatedPosition = interpolatePosition(currentLocation.coordinates, nextLocation.coordinates, fraction);
-                    setCurrentPosition([interpolatedPosition.lat, interpolatedPosition.lng]);
-                    if (nextLocation.msg) {
-                        setMessage(nextLocation.msg);
+                    if (!isNaN(interpolatedPosition.lat) && !isNaN(interpolatedPosition.lng)) {
+                        setCurrentPosition([interpolatedPosition.lat, interpolatedPosition.lng]);
+                        setMessage(nextLocation.msg || `Heading towards ${nextLocation.city}`);
                     } else {
-                        setMessage(`Heading towards ${nextLocation.city}`);
+                        console.error('Invalid interpolated position:', interpolatedPosition);
+                        // Optionally set a fallback position or handle the error
                     }
                 }
             }
         };
 
         const interval = setInterval(updatePosition, 1000);
-
         return () => clearInterval(interval);
     }, [santaData, currentLocationIndex]);
 
-
     return (
-        <div>
-            {message && <div className="message">{message}</div>}
+        <div style={{ height: '100%', width: '100%' }}>
+            {message && (
+                <div className="message" style={{ fontSize: '1rem', padding: '0.5rem' }}>{message}</div>
+            )}
             <MapContainer
-            center={[90, 135]} // Centered on Canada
-            zoom={4} // Adjust the zoom level as needed
-            style={{ height: '100vh', width: '100%' }}
-        >
-            <TileLayer 
-                url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
-            />
-            <Marker position={currentPosition} icon={santaIcon} />
-        </MapContainer>
-
+                center={[90, 135]}
+                zoom={4}
+                style={{ height: '100%', width: '100%' }}
+            >
+                <TileLayer 
+                    url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
+                />
+                <Marker position={currentPosition} icon={santaIcon} />
+            </MapContainer>
         </div>
     );
 };

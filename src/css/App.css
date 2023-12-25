@@ -1,71 +1,91 @@
-/* App.css */
-
 body, html, #root {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden; /* Prevent scrolling */
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100vh; /* Use viewport height instead of 100% */
-}
-
-.header {
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.map-container {
-  flex-grow: 1;
-  position: relative;
+  height: 100%; /* Using 100% instead of 100vh for mobile compatibility */
   overflow: hidden;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  padding: 0.8rem; /* Smaller padding for mobile */
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-size: 1rem; /* Smaller font size for mobile */
+  font-weight: bold;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.footer {
+  padding: 0.5rem;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
 .message {
-  position: absolute;
-  top: 10px;
+  position: fixed;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px 20px;
-  border-radius: 5px;
-  z-index: 1000;
-  font-size: 3em;
-  animation: messageBlink 2s linear infinite; /* Add animation */
+  padding: 0.6rem 1rem; /* Smaller padding for mobile */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  font-size: 1rem; /* Smaller font size for mobile */
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: center;
+  animation: messageBlink 2s linear infinite;
 }
 
 /* Define the animation */
 @keyframes messageBlink {
-  0% {
-    color: green;
+  0%, 100% {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   50% {
     color: red;
-  }
-  100% {
-    color: green;
-  }
-}
-
-
-/* Media Queries for Responsive Design */
-
-@media (max-width: 768px) {
-  .header {
-    font-size: 20px;
+    background-color: rgba(255, 235, 235, 0.9);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
   }
 }
 
-@media (max-width: 576px) {
-  .header {
-    font-size: 18px;
+/* Media Queries for Larger Screens */
+@media (min-width: 576px) {
+  .header, .footer {
+    font-size: 1.2rem;
+  }
+
+  .message {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
+@media (min-width: 768px) {
+  .header, .footer {
+    font-size: 1.5rem;
+  }
+
+  .message {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+
+  .main-content {
+    padding: 0.5rem;
+  }
+}

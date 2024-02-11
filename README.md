@@ -1,11 +1,12 @@
-# Getting Started with Create React App
+# Santa Tracker
+Overview
+Welcome to the Santa Tracker, a fun and interactive way to follow Santa Claus on his journey around the globe on Christmas Eve! This application provides real-time updates on Santa's location, allowing users to track his magical journey.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Features
+**Live Tracking:** See Santa's current location updated in real-time.
+**Interactive Map:** View Santa's journey on an interactive world map.
 
-## Available Scripts
-
-In the project directory, you can run:
-
+### Installation
 ### `npm start`
 
 Runs the app in the development mode.\

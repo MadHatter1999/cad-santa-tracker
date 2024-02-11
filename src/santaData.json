@@ -3,7 +3,6 @@
         "North Pole": {
             "arrival_time_utc": "2023-12-25 00:00:00 UTC",
             "coordinates": { "lat": 90, "lng": 0 }
-
         },
         "St. John's": {
             "arrival_time_utc": "2023-12-25 02:30:00 UTC",
@@ -24,6 +23,11 @@
             "arrival_time_utc": "2023-12-25 03:10:00 UTC",
             "coordinates": { "lat": 44.7762, "lng": -63.6844 },
             "msg": "Merry Christmas Nanny and Mom!!!"
+        },
+        "Noah": {
+            "arrival_time_utc": "2023-12-25 03:16:00 UTC",
+            "coordinates": { "lat": 44.666, "lng": -63.195 },
+            "msg": "Merry Christmas Noah"
         },
         "Bayswater, Nova Scotia": {
             "arrival_time_utc": "2023-12-25 03:15:00 UTC",
@@ -101,6 +105,11 @@
         }
     },
     "Pacific Time Zone": {
+        "Bella":{
+            "arrival_time_utc":"2023-12-25 06:15:00 UTC",
+            "coordinates": { "lat": 48.447, "lng": -123.417 },
+            "msg":"Merry Christmas Bella Old Freind!!!!"
+        },
         "Vancouver": {
             "arrival_time_utc": "2023-12-25 06:30:00 UTC",
             "coordinates": { "lat": 49.2827, "lng": -123.1207 }

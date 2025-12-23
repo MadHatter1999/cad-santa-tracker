@@ -1,50 +1,94 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import SantaMap from './comp/SantaMap';
 import santaData from './santaData.json';
 import './css/App.css';
 
+type ToastKind = 'info' | 'success' | 'warning';
+type Toast = { id: number; text: string; kind: ToastKind };
+
+const MAX_TOASTS = 3;
+
 const App: React.FC = () => {
-  const [messages, setMessages] = useState<{ id: number, text: string }[]>([]);
+  const [toasts, setToasts] = useState<Toast[]>([]);
+  const intervalRef = useRef<number | null>(null);
 
-  // Function to add a new message
-  const addMessage = (text: string) => {
-    const newMessage = { id: Date.now(), text };
-    setMessages([...messages, newMessage]);
-  };
+  const pushToast = useCallback((text: string, kind: ToastKind = 'info') => {
+    const id = Date.now() + Math.floor(Math.random() * 1000);
 
-  // Function to remove a message by id
-  const removeMessage = (id: number) => {
-    setMessages(messages.filter(message => message.id !== id));
-  };
+    setToasts(prev => {
+      const next = [...prev, { id, text, kind }];
+      return next.length > MAX_TOASTS ? next.slice(next.length - MAX_TOASTS) : next;
+    });
 
-  // Automatically add and remove messages
+    window.setTimeout(() => {
+      setToasts(prev => prev.filter(t => t.id !== id));
+    }, 4200);
+  }, []);
+
+  // One interval, forever. (Your old code created a new interval every render.)
   useEffect(() => {
-    const timer = setInterval(() => {
-      addMessage("Merry Christmas!");
-      setTimeout(() => {
-        if (messages.length > 0) {
-          removeMessage(messages[0].id);
-        }
-      }, 4000); // Message display duration
-    }, 5000); // Interval between messages
+    if (intervalRef.current !== null) return;
 
-    return () => clearInterval(timer);
-  }, [messages]);
+    intervalRef.current = window.setInterval(() => {
+      const msgs = [
+        'Merry Christmas! 🎄',
+        'Sleigh signal: strong ✨',
+        'Nice list verified ✅',
+        'Tracking Santa live 🎅',
+      ];
+      pushToast(msgs[Math.floor(Math.random() * msgs.length)], 'success');
+    }, 9000) as unknown as number;
+
+    return () => {
+      if (intervalRef.current !== null) window.clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    };
+  }, [pushToast]);
+
+  const year = new Date().getFullYear();
 
   return (
     <div className="app-container">
       <header className="header">
-        <h2>Santa Tracker</h2>
-      </header>
-      <main className="main-content">
-        {messages.map((message, index) => (
-          <div key={message.id} className="message" style={{ top: `${10 + index * 5}%` }}>
-            {message.text}
+        <div className="header-left">
+          <span className="brand-dot" aria-hidden="true" />
+          <div className="brand-text">
+            <h1>Santa Tracker</h1>
+            <p>Live sleigh telemetry • your timezone</p>
           </div>
-        ))}
-        <SantaMap santaData={santaData} />
+        </div>
+
+        <div className="header-right">
+          <span className="pill pill-live">Live</span>
+        </div>
+      </header>
+
+      <main className="main-content">
+        <div className="toast-stack" aria-live="polite">
+          {toasts.map(t => (
+            <div key={t.id} className={`toast toast--${t.kind}`} role="status">
+              <span className="toast-dot" aria-hidden="true" />
+              <span className="toast-text">{t.text}</span>
+              <button
+                className="toast-x"
+                aria-label="Dismiss"
+                onClick={() => setToasts(prev => prev.filter(x => x.id !== t.id))}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <SantaMap
+          santaData={santaData as any}
+          bedtimeHourLocal={22}      // 👈 change bedtime here (22 = 10pm)
+          bedtimeMinuteLocal={0}
+          onStatus={(text) => pushToast(text, 'info')}
+        />
       </main>
-      <footer className="footer">Tony's Santa Tracker©</footer>
+
+      <footer className="footer">Tony’s Santa Tracker © {year}</footer>
     </div>
   );
 };

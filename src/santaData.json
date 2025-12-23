@@ -1,118 +1,243 @@
 {
-    "Newfoundland Time Zone": {
-        "North Pole": {
-            "arrival_time_utc": "2023-12-25 00:00:00 UTC",
-            "coordinates": { "lat": 90, "lng": 0 }
-        },
-        "St. John's": {
-            "arrival_time_utc": "2023-12-25 02:30:00 UTC",
-            "coordinates": { "lat": 47.5615, "lng": -52.7126 }
-        }
+  "Newfoundland Time Zone": {
+    "North Pole": {
+      "arrival_time_utc": "2025-12-25T00:00:00Z",
+      "coordinates": { "lat": 90, "lng": 0 }
     },
-    "Atlantic Time Zone": {
-        "Halifax": {
-            "arrival_time_utc": "2023-12-25 03:00:00 UTC",
-            "coordinates": { "lat": 44.6488, "lng": -63.5752 }
-        },
-        "Eastern Passage, NS": {
-            "arrival_time_utc": "2023-12-25 03:05:00 UTC",
-            "coordinates": { "lat": 44.6108, "lng": -63.4992 },
-            "msg": "Merry Christmas Ezra and Bennetts!!!"
-        },
-        "Lower Sackville, NS": {
-            "arrival_time_utc": "2023-12-25 03:10:00 UTC",
-            "coordinates": { "lat": 44.7762, "lng": -63.6844 },
-            "msg": "Merry Christmas Nanny and Mom!!!"
-        },
-        "Noah": {
-            "arrival_time_utc": "2023-12-25 03:16:00 UTC",
-            "coordinates": { "lat": 44.666, "lng": -63.195 },
-            "msg": "Merry Christmas Noah"
-        },
-        "Bayswater, Nova Scotia": {
-            "arrival_time_utc": "2023-12-25 03:15:00 UTC",
-            "coordinates": { "lat": 44.4858, "lng": -64.0188 },
-            "msg": "Merry Christmas Landon and Maddie!!!!"
-        },
-        "Charlottetown": {
-            "arrival_time_utc": "2023-12-25 03:20:00 UTC",
-            "coordinates": { "lat": 46.2382, "lng": -63.1311 }
-        },
-        "Fredericton": {
-            "arrival_time_utc": "2023-12-25 03:25:00 UTC",
-            "coordinates": { "lat": 45.9636, "lng": -66.6431 }
-        },
-        "Saint John": {
-            "arrival_time_utc": "2023-12-25 03:30:00 UTC",
-            "coordinates": { "lat": 45.2733, "lng": -66.0633 }
-        },
-        "Moncton": {
-            "arrival_time_utc": "2023-12-25 03:35:00 UTC",
-            "coordinates": { "lat": 46.0878, "lng": -64.7782 }
-        },
-        "Yarmouth": {
-            "arrival_time_utc": "2023-12-25 03:40:00 UTC",
-            "coordinates": { "lat": 43.8375, "lng": -66.1174 }
-        },
-        "Truro": {
-            "arrival_time_utc": "2023-12-25 03:45:00 UTC",
-            "coordinates": { "lat": 45.3658, "lng": -63.2869 },
-            "msg": "Merry Christmas Gavin!!!!"
-        }
+    "St. John's": {
+      "arrival_time_utc": "2025-12-25T02:30:00Z",
+      "coordinates": { "lat": 47.5615, "lng": -52.7126 }
     },
-    "Eastern Time Zone": {
-        "Quebec City": {
-            "arrival_time_utc": "2023-12-25 04:00:00 UTC",
-            "coordinates": { "lat": 46.8139, "lng": -71.2082 }
-        },
-        "Montreal": {
-            "arrival_time_utc": "2023-12-25 04:10:00 UTC",
-            "coordinates": { "lat": 45.5017, "lng": -73.5673 },
-            "msg": "Merry Christmas Strippers and GREAT WINE!!!!"
-        },
-        "Ottawa": {
-            "arrival_time_utc": "2023-12-25 04:20:00 UTC",
-            "coordinates": { "lat": 45.4215, "lng": -75.6972 }
-        },
-        "Toronto": {
-            "arrival_time_utc": "2023-12-25 04:30:00 UTC",
-            "coordinates": { "lat": 43.65107, "lng": -79.347015 }
-        },
-        "Hamilton": {
-            "arrival_time_utc": "2023-12-25 04:40:00 UTC",
-            "coordinates": { "lat": 43.2557, "lng": -79.8711 }
-        },
-        "London": {
-            "arrival_time_utc": "2023-12-25 04:50:00 UTC",
-            "coordinates": { "lat": 42.9849, "lng": -81.2453 }
-        },
-        "Ashton": {
-            "arrival_time_utc": "2023-12-25 05:00:00 UTC",
-            "coordinates": { "lat": 45.1910, "lng": -75.8355 },
-            "msg": "Merry Christmas Yvette and Connor!!!!"
-        }
+    "Gander": {
+      "arrival_time_utc": "2025-12-25T02:40:00Z",
+      "coordinates": { "lat": 48.9568, "lng": -54.6089 }
     },
-    "Central Time Zone": {
-        "Winnipeg": {
-            "arrival_time_utc": "2023-12-25 05:30:00 UTC",
-            "coordinates": { "lat": 49.8951, "lng": -97.1384 }
-        }
+    "Grand Falls-Windsor": {
+      "arrival_time_utc": "2025-12-25T02:47:00Z",
+      "coordinates": { "lat": 48.9333, "lng": -55.65 }
     },
-    "Mountain Time Zone": {
-        "Calgary": {
-            "arrival_time_utc": "2023-12-25 06:00:00 UTC",
-            "coordinates": { "lat": 51.0447, "lng": -114.0719 }
-        }
-    },
-    "Pacific Time Zone": {
-        "Bella":{
-            "arrival_time_utc":"2023-12-25 06:15:00 UTC",
-            "coordinates": { "lat": 48.447, "lng": -123.417 },
-            "msg":"Merry Christmas Bella Old Freind!!!!"
-        },
-        "Vancouver": {
-            "arrival_time_utc": "2023-12-25 06:30:00 UTC",
-            "coordinates": { "lat": 49.2827, "lng": -123.1207 }
-        }
+    "Corner Brook": {
+      "arrival_time_utc": "2025-12-25T02:55:00Z",
+      "coordinates": { "lat": 48.952, "lng": -57.952 }
     }
+  },
+
+  "Atlantic Time Zone": {
+    "Halifax": {
+      "arrival_time_utc": "2025-12-25T03:00:00Z",
+      "coordinates": { "lat": 44.6488, "lng": -63.5752 }
+    },
+    "Dartmouth, NS": {
+      "arrival_time_utc": "2025-12-25T03:02:00Z",
+      "coordinates": { "lat": 44.6667, "lng": -63.5667 }
+    },
+    "Eastern Passage, NS": {
+      "arrival_time_utc": "2025-12-25T03:05:00Z",
+      "coordinates": { "lat": 44.6108, "lng": -63.4992 },
+      "msg": "Merry Christmas Ezra and Bennett!!!"
+    },
+    "Lower Sackville, NS": {
+      "arrival_time_utc": "2025-12-25T03:10:00Z",
+      "coordinates": { "lat": 44.7762, "lng": -63.6844 },
+      "msg": "Merry Christmas Nanny and Mom!!!"
+    },
+    "Bayswater, Nova Scotia": {
+      "arrival_time_utc": "2025-12-25T03:14:00Z",
+      "coordinates": { "lat": 44.4858, "lng": -64.0188 },
+      "msg": "Merry Christmas Landon and Maddie!!!!"
+    },
+    "Noah": {
+      "arrival_time_utc": "2025-12-25T03:16:00Z",
+      "coordinates": { "lat": 44.666, "lng": -63.195 },
+      "msg": "Merry Christmas Noah!"
+    },
+    "Bridgewater, NS": {
+      "arrival_time_utc": "2025-12-25T03:18:00Z",
+      "coordinates": { "lat": 44.3786, "lng": -64.5185 }
+    },
+    "Charlottetown": {
+      "arrival_time_utc": "2025-12-25T03:20:00Z",
+      "coordinates": { "lat": 46.2382, "lng": -63.1311 }
+    },
+    "Summerside, PEI": {
+      "arrival_time_utc": "2025-12-25T03:22:00Z",
+      "coordinates": { "lat": 46.393, "lng": -63.79 }
+    },
+    "Fredericton": {
+      "arrival_time_utc": "2025-12-25T03:25:00Z",
+      "coordinates": { "lat": 45.9636, "lng": -66.6431 }
+    },
+    "Saint John": {
+      "arrival_time_utc": "2025-12-25T03:30:00Z",
+      "coordinates": { "lat": 45.2733, "lng": -66.0633 }
+    },
+    "Moncton": {
+      "arrival_time_utc": "2025-12-25T03:35:00Z",
+      "coordinates": { "lat": 46.0878, "lng": -64.7782 }
+    },
+    "Miramichi, NB": {
+      "arrival_time_utc": "2025-12-25T03:37:00Z",
+      "coordinates": { "lat": 47.0267, "lng": -65.5036 }
+    },
+    "Yarmouth": {
+      "arrival_time_utc": "2025-12-25T03:40:00Z",
+      "coordinates": { "lat": 43.8375, "lng": -66.1174 }
+    },
+    "Truro": {
+      "arrival_time_utc": "2025-12-25T03:45:00Z",
+      "coordinates": { "lat": 45.3658, "lng": -63.2869 },
+      "msg": "Merry Christmas Gavin!!!!"
+    },
+    "Sydney, NS": {
+      "arrival_time_utc": "2025-12-25T03:52:00Z",
+      "coordinates": { "lat": 46.1368, "lng": -60.1942 }
+    }
+  },
+
+  "Eastern Time Zone": {
+    "Quebec City": {
+      "arrival_time_utc": "2025-12-25T04:00:00Z",
+      "coordinates": { "lat": 46.8139, "lng": -71.2082 }
+    },
+    "Trois-Rivières": {
+      "arrival_time_utc": "2025-12-25T04:05:00Z",
+      "coordinates": { "lat": 46.343, "lng": -72.543 }
+    },
+    "Montreal": {
+      "arrival_time_utc": "2025-12-25T04:10:00Z",
+      "coordinates": { "lat": 45.5017, "lng": -73.5673 },
+      "msg": "Merry Christmas Montreal!!! 🎁"
+    },
+    "Laval": {
+      "arrival_time_utc": "2025-12-25T04:12:00Z",
+      "coordinates": { "lat": 45.6066, "lng": -73.7124 }
+    },
+    "Ottawa": {
+      "arrival_time_utc": "2025-12-25T04:20:00Z",
+      "coordinates": { "lat": 45.4215, "lng": -75.6972 }
+    },
+    "Kingston": {
+      "arrival_time_utc": "2025-12-25T04:26:00Z",
+      "coordinates": { "lat": 44.2312, "lng": -76.486 }
+    },
+    "Toronto": {
+      "arrival_time_utc": "2025-12-25T04:30:00Z",
+      "coordinates": { "lat": 43.65107, "lng": -79.347015 }
+    },
+    "Mississauga": {
+      "arrival_time_utc": "2025-12-25T04:33:00Z",
+      "coordinates": { "lat": 43.589, "lng": -79.6441 }
+    },
+    "Hamilton": {
+      "arrival_time_utc": "2025-12-25T04:40:00Z",
+      "coordinates": { "lat": 43.2557, "lng": -79.8711 }
+    },
+    "Niagara Falls": {
+      "arrival_time_utc": "2025-12-25T04:45:00Z",
+      "coordinates": { "lat": 43.0896, "lng": -79.0849 }
+    },
+    "London": {
+      "arrival_time_utc": "2025-12-25T04:50:00Z",
+      "coordinates": { "lat": 42.9849, "lng": -81.2453 }
+    },
+    "Windsor": {
+      "arrival_time_utc": "2025-12-25T04:57:00Z",
+      "coordinates": { "lat": 42.3149, "lng": -83.0364 }
+    },
+    "Ashton": {
+      "arrival_time_utc": "2025-12-25T05:00:00Z",
+      "coordinates": { "lat": 45.191, "lng": -75.8355 },
+      "msg": "Merry Christmas Yvette and Connor!!!!"
+    }
+  },
+
+  "Central Time Zone": {
+    "Thunder Bay": {
+      "arrival_time_utc": "2025-12-25T05:12:00Z",
+      "coordinates": { "lat": 48.3809, "lng": -89.2477 }
+    },
+    "Brandon": {
+      "arrival_time_utc": "2025-12-25T05:22:00Z",
+      "coordinates": { "lat": 49.8485, "lng": -99.9501 }
+    },
+    "Winnipeg": {
+      "arrival_time_utc": "2025-12-25T05:30:00Z",
+      "coordinates": { "lat": 49.8951, "lng": -97.1384 }
+    },
+    "Regina": {
+      "arrival_time_utc": "2025-12-25T05:45:00Z",
+      "coordinates": { "lat": 50.4452, "lng": -104.6189 }
+    },
+    "Saskatoon": {
+      "arrival_time_utc": "2025-12-25T05:55:00Z",
+      "coordinates": { "lat": 52.1332, "lng": -106.67 }
+    }
+  },
+
+  "Mountain Time Zone": {
+    "Calgary": {
+      "arrival_time_utc": "2025-12-25T06:05:00Z",
+      "coordinates": { "lat": 51.0447, "lng": -114.0719 }
+    },
+    "Banff": {
+      "arrival_time_utc": "2025-12-25T06:10:00Z",
+      "coordinates": { "lat": 51.1784, "lng": -115.5708 }
+    },
+    "Red Deer": {
+      "arrival_time_utc": "2025-12-25T06:18:00Z",
+      "coordinates": { "lat": 52.2681, "lng": -113.8112 }
+    },
+    "Edmonton": {
+      "arrival_time_utc": "2025-12-25T06:25:00Z",
+      "coordinates": { "lat": 53.5461, "lng": -113.4938 }
+    }
+  },
+
+  "Pacific Time Zone": {
+    "Kelowna": {
+      "arrival_time_utc": "2025-12-25T06:40:00Z",
+      "coordinates": { "lat": 49.888, "lng": -119.496 }
+    },
+    "Kamloops": {
+      "arrival_time_utc": "2025-12-25T06:50:00Z",
+      "coordinates": { "lat": 50.6745, "lng": -120.3273 }
+    },
+    "Bella": {
+      "arrival_time_utc": "2025-12-25T07:00:00Z",
+      "coordinates": { "lat": 48.447, "lng": -123.417 },
+      "msg": "Merry Christmas Bella!!!"
+    },
+    "Victoria": {
+      "arrival_time_utc": "2025-12-25T07:05:00Z",
+      "coordinates": { "lat": 48.4284, "lng": -123.3656 }
+    },
+    "Nanaimo": {
+      "arrival_time_utc": "2025-12-25T07:10:00Z",
+      "coordinates": { "lat": 49.1659, "lng": -123.9401 }
+    },
+    "Vancouver": {
+      "arrival_time_utc": "2025-12-25T07:20:00Z",
+      "coordinates": { "lat": 49.2827, "lng": -123.1207 }
+    },
+    "Surrey": {
+      "arrival_time_utc": "2025-12-25T07:25:00Z",
+      "coordinates": { "lat": 49.1044, "lng": -122.8011 }
+    },
+    "Abbotsford": {
+      "arrival_time_utc": "2025-12-25T07:30:00Z",
+      "coordinates": { "lat": 49.0504, "lng": -122.3045 }
+    },
+    "Whistler": {
+      "arrival_time_utc": "2025-12-25T07:40:00Z",
+      "coordinates": { "lat": 50.1163, "lng": -122.9574 }
+    },
+    "Prince George": {
+      "arrival_time_utc": "2025-12-25T08:05:00Z",
+      "coordinates": { "lat": 53.9171, "lng": -122.7497 }
+    },
+    "Whitehorse": {
+      "arrival_time_utc": "2025-12-25T08:35:00Z",
+      "coordinates": { "lat": 60.7212, "lng": -135.0568 }
+    }
+  }
 }

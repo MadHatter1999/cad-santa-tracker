@@ -4,27 +4,20 @@ import L from 'leaflet';
 import type { Map as LeafletMap } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-interface CityData {
-  arrival_time_utc: string;
-  coordinates: { lat: number; lng: number };
-  msg?: string;
-}
-interface TimeZoneData { [city: string]: CityData; }
-interface SantaData { [timeZone: string]: TimeZoneData; }
+import type { SantaData, UserStop, Stop } from '../utils/timeline';
+import {
+  flattenSantaData,
+  shiftToLocalBedtime,
+  userStopsToStops
+} from '../utils/timeline';
 
 interface SantaMapProps {
   santaData: SantaData;
-  bedtimeHourLocal?: number;      // 22 => 10pm
-  bedtimeMinuteLocal?: number;    // 0
+  userStops: UserStop[];
+  bedtimeHourLocal?: number;
+  bedtimeMinuteLocal?: number;
   onStatus?: (text: string) => void;
 }
-
-type Stop = {
-  city: string;
-  coords: { lat: number; lng: number };
-  arrival: number; // ms UTC
-  msg?: string;
-};
 
 const santaIcon = new L.Icon({
   iconUrl: '/santa-icon.svg',
@@ -60,24 +53,6 @@ function prettyTZ() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || 'local time';
 }
 
-function nextLocalBedtimeMs(bedHour: number, bedMin: number) {
-  const d = new Date(); // local
-  d.setHours(bedHour, bedMin, 0, 0);
-  if (d.getTime() <= Date.now()) d.setDate(d.getDate() + 1);
-  return d.getTime();
-}
-
-function shiftTimelineToLocalBedtime(stops: Stop[], bedHour: number, bedMin: number): Stop[] {
-  const sorted = [...stops].sort((a, b) => a.arrival - b.arrival);
-  if (sorted.length === 0) return sorted;
-
-  const first = sorted[0].arrival;
-  const desired = nextLocalBedtimeMs(bedHour, bedMin);
-  const delta = desired - first;
-
-  return sorted.map(s => ({ ...s, arrival: s.arrival + delta }));
-}
-
 function estimateSantaPositionNow(timeline: Stop[]): { lat: number; lng: number } {
   if (timeline.length === 0) return { lat: 90, lng: 0 };
 
@@ -99,6 +74,7 @@ function estimateSantaPositionNow(timeline: Stop[]): { lat: number; lng: number 
 
 const SantaMap: React.FC<SantaMapProps> = ({
   santaData,
+  userStops,
   bedtimeHourLocal = 22,
   bedtimeMinuteLocal = 0,
   onStatus
@@ -114,30 +90,21 @@ const SantaMap: React.FC<SantaMapProps> = ({
   const initialCenteredRef = useRef(false);
 
   const timeline = useMemo<Stop[]>(() => {
-    const out: Stop[] = [];
+    const baseFromJson = flattenSantaData(santaData);
+    const baseFromUsers = userStopsToStops(userStops);
 
-    for (const zone of Object.keys(santaData)) {
-      for (const city of Object.keys(santaData[zone])) {
-        const { coordinates, arrival_time_utc, msg } = santaData[zone][city];
-        const arrival = new Date(arrival_time_utc).getTime();
-        if (!Number.isFinite(arrival)) continue;
-        out.push({ city, coords: coordinates, arrival, msg });
-      }
-    }
-
-    return shiftTimelineToLocalBedtime(out, bedtimeHourLocal, bedtimeMinuteLocal);
-  }, [santaData, bedtimeHourLocal, bedtimeMinuteLocal]);
+    const mergedBase = [...baseFromJson, ...baseFromUsers].sort((a, b) => a.arrival - b.arrival);
+    return shiftToLocalBedtime(mergedBase, bedtimeHourLocal, bedtimeMinuteLocal);
+  }, [santaData, userStops, bedtimeHourLocal, bedtimeMinuteLocal]);
 
   const routeLine = useMemo<[number, number][]>(() => timeline.map(s => [s.coords.lat, s.coords.lng]), [timeline]);
 
-  // initial marker position (so first view is “near Santa”)
   useEffect(() => {
     if (timeline.length === 0) return;
     const p = estimateSantaPositionNow(timeline);
     setPos([p.lat, p.lng]);
   }, [timeline]);
 
-  // center map once on load (no constant auto-follow)
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
@@ -147,7 +114,6 @@ const SantaMap: React.FC<SantaMapProps> = ({
     initialCenteredRef.current = true;
   }, [pos]);
 
-  // animation loop
   useEffect(() => {
     if (timeline.length === 0) return;
 
